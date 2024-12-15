@@ -12,7 +12,6 @@ pipeline {
         stage ("Build image") {
             steps {
                 sh ('docker build -t ${IMAGE_REPO_NAME} .')
-                sh ('docker images')
             }
         }
         stage ("Login to ECR") {
