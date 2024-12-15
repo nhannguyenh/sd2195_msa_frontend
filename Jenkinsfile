@@ -28,5 +28,10 @@ pipeline {
                 sh ('docker push ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}:${IMAGE_TAG}')
             }
         }
+        stage ("Clear image") {
+            steps {
+                sh ("docker rmi -f \$(docker images | grep ${IMAGE_REPO_NAME} | awk '{print \$3}' | uniq)")
+            }
+        }
     }
 }
