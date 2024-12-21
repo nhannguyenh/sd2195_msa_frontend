@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent { 
+        label 'docker-k8s'
+    }
 
     environment {
         AWS_ACCOUNT_ID = '211125338837'
