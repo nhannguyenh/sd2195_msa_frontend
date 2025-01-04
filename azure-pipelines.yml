@@ -23,7 +23,7 @@ stages:
       - job: "login"
         displayName: "Login to ACR"
         variables:
-        - group: "acr-credentials"
+        - group: "az-credentials"
         steps:
           - script: echo $(ACR_PASSWORD) | docker login -u $(ACR_USERNAME) --password-stdin $(ACR_URL)
       - job: "push_image"
